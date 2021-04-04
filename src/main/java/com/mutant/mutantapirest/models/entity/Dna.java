@@ -3,6 +3,9 @@ package com.mutant.mutantapirest.models.entity;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +17,8 @@ public class Dna  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotEmpty
+    @Size(min = 40, max = 42, message = "Tamaño de cadena de ADN no valida")
     @Column(nullable = false)
     private String dna;
     @Column(nullable = false)
