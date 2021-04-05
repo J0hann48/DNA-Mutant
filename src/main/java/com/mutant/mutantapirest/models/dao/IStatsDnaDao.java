@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface IStatsDnaDao extends CrudRepository<StatsDna, Long> {
-    @Query(value = "select sd.countMutantDna, sd.countHumanDna, sd.ratio from StatsDna sd where sd.id = (select  max(id) from StatsDna)")
+    @Query(value = "select sd from StatsDna sd where sd.id = (select  max(id) from StatsDna)")
     StatsDna showStatsDna();
 }

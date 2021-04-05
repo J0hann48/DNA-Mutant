@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 
 @Service
 public class StatsDnaServiceImpl implements IStatsDnaService{
@@ -18,4 +19,10 @@ public class StatsDnaServiceImpl implements IStatsDnaService{
     public StatsDna showStatsDna() {
         return iStatsDao.showStatsDna();
     }
+
+    @Override
+    public StatsDna save(StatsDna statsDna) {
+        return iStatsDao.save(statsDna);
+    }
+
 }

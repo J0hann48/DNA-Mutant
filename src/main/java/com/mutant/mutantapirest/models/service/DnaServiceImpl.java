@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 
 @Service
 public class DnaServiceImpl implements IDnaService{
@@ -17,5 +18,10 @@ public class DnaServiceImpl implements IDnaService{
     @Transactional
     public Dna save(Dna dna) {
         return dnaDao.save(dna);
+    }
+
+    @Override
+    public ArrayList<Dna> findAll() {
+        return (ArrayList<Dna>) dnaDao.findAll();
     }
 }
