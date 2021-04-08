@@ -4,12 +4,12 @@ Proyecto prueba en donde se valida una cadena de ADN para ver si es mutante o no
 
 ## Instrucciones para su prueba
 
-El servicio se encuentra deployado en [http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080]http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080)
+El servicio se encuentra deployado en [ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080](ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080)
 
 El servicio actualmente cuenta con los siguientes métodos:
  
  * Método POST para detectar si un ADN es mutante:<br><br>
-  La URL del método es [http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080/api/mutant](http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080/api/mutant)<br><br>
+  La URL del método es [ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080/api/mutant](ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080/api/mutant)<br><br>
 Se puede detectar si un humano es mutante enviando la secuencia de ADN mediante un HTTP POST con un Json el cual tenga el siguiente formato:<br><br>
 POST → /mutant/<br />
 {<br />
@@ -18,7 +18,7 @@ POST → /mutant/<br />
 En caso de verificar que el ADN enviado es mutante, el método devuelve como respuesta un HTTP 200-OK, en caso contrario un
 403-Forbidden <br><br>
 * Método GET para obtener las estadísticas de las verificaciones de ADN<br><br>
-La URL del método es [http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080/api/stats](http://ec2-3-141-38-96.us-east-2.compute.amazonaws.com:8080/api/stats)<br><br>
+La URL del método es [ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080/api/stats](ec2-18-219-71-242.us-east-2.compute.amazonaws.com:8080/api/stats)<br><br>
 
 Se puede probar utilizando [Postman](https://www.getpostman.com/).
 
