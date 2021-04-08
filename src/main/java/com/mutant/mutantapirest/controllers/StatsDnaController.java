@@ -41,7 +41,7 @@ public class StatsDnaController {
         }catch (DataAccessException e){
             response.put("mensaje", "Error al realizar la consulta a la base de datos");
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_GATEWAY);
         }
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }

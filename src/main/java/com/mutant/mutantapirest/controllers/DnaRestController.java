@@ -42,11 +42,11 @@ public class DnaRestController {
             dnaNew.setDna(cadenaDna);
             isMutant = isMutant(arrayDna) ? true : false;
             dnaNew.setMutant(isMutant);
-            dnaNew = dnaService.save(dnaNew);
+            dnaService.save(dnaNew);
         }catch (DataAccessException dt){
             response.put("mensaje", "Error al realizar el insert en base de datos");
             response.put("error", dt.getMessage().concat(": ").concat(dt.getMostSpecificCause().getMessage()));
-            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_GATEWAY);
         }
         return new ResponseEntity<Map<String, Object>>(response, isMutant ? HttpStatus.OK : HttpStatus.FORBIDDEN);
     }
@@ -62,7 +62,7 @@ public class DnaRestController {
         }
         return convert;
     }
-    private boolean isvalid(String cadena){
+    public boolean isvalid(String cadena){
         boolean isvalid = false;
         isvalid = Pattern.matches("[ACGT-]{4,41}+", cadena);
         return isvalid;
@@ -82,7 +82,7 @@ public class DnaRestController {
         return arrayDna;
     }
 
-    private boolean isMutant(String[] dna){
+    public boolean isMutant(String[] dna){
         char[][] dnaChar = new char[dna.length][dna[0].length()];
         int horizontal = 0, vertical = 0, diagonal = 0;
         boolean isMutant = false;
